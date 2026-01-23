@@ -1,9 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DV.Shared.Models;
 
 public record Document
 {
+    [NotMapped]
+    public string? SchemaName { get; set; }
+
     [Key]
     public int DocumentId { get; init; }
     public int? ProjectId { get; init; }

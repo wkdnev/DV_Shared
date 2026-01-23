@@ -6,7 +6,8 @@ public class ProjectEditModel
     public string ProjectCode { get; set; } = string.Empty;
     public string ProjectName { get; set; } = string.Empty;
     public string FolderPath { get; set; } = string.Empty;
-    public string Principal { get; set; } = string.Empty;
+    public string ReadPrincipal { get; set; } = string.Empty;
+    public string EditPrincipal { get; set; } = string.Empty;
     public string SchemaName { get; set; } = string.Empty;
     public string? Description { get; set; }
     public DateTime CreatedDate { get; set; }
@@ -25,7 +26,8 @@ public class ProjectEditModel
             ProjectCode = project.ProjectCode,
             ProjectName = project.ProjectName,
             FolderPath = project.FolderPath,
-            Principal = project.Principal,
+            ReadPrincipal = project.ReadPrincipal,
+            EditPrincipal = project.EditPrincipal,
             SchemaName = project.SchemaName,
             Description = project.Description,
             CreatedDate = project.CreatedDate,
@@ -40,7 +42,8 @@ public class ProjectEditModel
             ProjectCode,
             ProjectName,
             FolderPath,
-            Principal,
+            ReadPrincipal,
+            EditPrincipal,
             SchemaName,
             Description,
             CreatedDate,

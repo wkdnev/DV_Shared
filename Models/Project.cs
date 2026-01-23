@@ -15,11 +15,14 @@ public record Project
     [MaxLength(255)]
     public string ProjectName { get; init; } = string.Empty;
     
-    [MaxLength(500)]
+    [MaxLength(50)]
     public string FolderPath { get; init; } = string.Empty;
     
     [MaxLength(255)]
-    public string Principal { get; init; } = string.Empty;
+    public string ReadPrincipal { get; init; } = string.Empty;
+
+    [MaxLength(255)]
+    public string EditPrincipal { get; init; } = string.Empty;
     
     [Required]
     [MaxLength(128)]
@@ -38,14 +41,15 @@ public record Project
     }
 
     public Project(int projectId, string projectCode, string projectName, string folderPath,
-                   string principal, string schemaName, string? description = null,
+                   string readPrincipal, string editPrincipal, string schemaName, string? description = null,
                    DateTime createdDate = default, bool isActive = true)
     {
         ProjectId = projectId;
         ProjectCode = projectCode;
         ProjectName = projectName;
         FolderPath = folderPath;
-        Principal = principal;
+        ReadPrincipal = readPrincipal;
+        EditPrincipal = editPrincipal;
         SchemaName = schemaName;
         Description = description;
         CreatedDate = createdDate == default ? DateTime.UtcNow : createdDate;
