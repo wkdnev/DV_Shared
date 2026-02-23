@@ -14,10 +14,10 @@ public static class Roles
     public const string Auditor = "Auditor";
     public const string Editor = "Editor";
     public const string GlobalAdmin = "GlobalAdmin";
-    public const string GlobalAdminGroup = "DV_Global_Admins";
-    public const string AdminGroup = "DV_Admins";
-    public const string AuditorGroup = "DV_Auditors";
-    public const string SecurityGroup = "DV_Security";
+    public const string GlobalAdminGroup = "DocViewer_GlobalAdmins";
+    public const string AdminGroup = "DocViewer_Admins";
+    public const string AuditorGroup = "DocViewer_Auditors";
+    public const string SecurityGroup = "DocViewer_Security";
     public const string Security = "Security";
 }
 
