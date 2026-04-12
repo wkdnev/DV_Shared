@@ -157,4 +157,7 @@ public static class SessionActivityTypes
     public const string AdminAction = "AdminAction";
     public const string IdleTimeout = "IdleTimeout";
     public const string AdminTermination = "AdminTermination";
+    public const string ConcurrentSessionEviction = "ConcurrentSessionEviction";
+    public const string AbsoluteTimeout = "AbsoluteTimeout";
+    public const string AnomalyDetected = "AnomalyDetected";
 }

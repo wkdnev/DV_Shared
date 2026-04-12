@@ -58,6 +58,17 @@ public static class ApiRoutes
         public const string Roles = $"{Base}/{{id}}/roles";
         public const string SetRole = $"{Base}/set-role";
     }
+
+    public static class Notifications
+    {
+        public const string Base = $"{ApiRoutes.Base}/notifications";
+        public const string UnreadCount = $"{Base}/unread-count";
+        public const string ById = $"{Base}/{{id}}";
+        public const string MarkRead = $"{Base}/{{id}}/read";
+        public const string MarkAllRead = $"{Base}/read-all";
+        public const string BulkDelete = $"{Base}/bulk";
+        public const string Cleanup = $"{Base}/cleanup";
+    }
 }
 
 /// <summary>
@@ -72,4 +83,29 @@ public static class ClaimTypes
     public const string IsGlobalAdmin = "is_global_admin";
     public const string CurrentRole = "current_role";
     public const string Roles = "roles";
+}
+
+/// <summary>
+/// Session management configuration constants
+/// NIST SP 800-53 Rev 5 compliant (AC-12, AC-10, SC-23)
+/// </summary>
+public static class SessionConfig
+{
+    /// <summary>AC-12: Idle timeout in minutes (sliding). Sessions with no activity expire.</summary>
+    public const int IdleTimeoutMinutes = 30;
+
+    /// <summary>AC-12: Absolute timeout in hours. Sessions cannot exceed this regardless of activity.</summary>
+    public const int AbsoluteTimeoutHours = 8;
+
+    /// <summary>AC-10: Maximum concurrent sessions per user.</summary>
+    public const int MaxConcurrentSessionsPerUser = 3;
+
+    /// <summary>Background cleanup interval in minutes.</summary>
+    public const int CleanupIntervalMinutes = 5;
+
+    /// <summary>Throttle session activity DB writes (seconds between writes per session).</summary>
+    public const int ActivityThrottleSeconds = 60;
+
+    /// <summary>SC-23: Custom cookie name to prevent technology fingerprinting.</summary>
+    public const string CookieName = "DV.SessionId";
 }

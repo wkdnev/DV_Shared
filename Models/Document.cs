@@ -55,6 +55,7 @@ public record Document
     public int CreatedBy { get; init; }
     public DateTime? ModifiedOn { get; init; }
     public int? ModifiedBy { get; init; }
+    public string? PublicToken { get; init; }
 
     public Document() { }
 }
