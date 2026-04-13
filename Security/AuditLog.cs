@@ -103,6 +103,14 @@ public class AuditLog
     public string? Metadata { get; set; }
 
     /// <summary>
+    /// Identifies which application component generated this audit record.
+    /// NIST SP 800-53 AU-3(c): "Where the event occurred."
+    /// Values: DV.Web, DV.API, DV.Admin.UI
+    /// </summary>
+    [MaxLength(50)]
+    public string? SourceComponent { get; set; }
+
+    /// <summary>
     /// SHA-256 hash of the previous audit log record's RecordHash.
     /// Forms a cryptographic chain per NIST SP 800-53 AU-9(3).
     /// Genesis value: 64 zeros.
@@ -140,6 +148,11 @@ public static class AuditEventTypes
     public const string SystemAdmin = "SystemAdmin";
     public const string DataModification = "DataModification";
     public const string SecurityEvent = "SecurityEvent";
+    public const string CredentialChange = "CredentialChange";
+    public const string ConfigurationChange = "ConfigurationChange";
+    public const string SessionManagement = "SessionManagement";
+    public const string DataExport = "DataExport";
+    public const string BadFileReport = "BadFileReport";
 }
 
 /// <summary>
@@ -186,6 +199,29 @@ public static class AuditActions
     public const string UnauthorizedAccess = "UnauthorizedAccess";
     public const string SuspiciousActivity = "SuspiciousActivity";
     public const string SecurityViolation = "SecurityViolation";
+
+    // Credential management actions (NIST AU-2: password changes)
+    public const string ChangePassword = "ChangePassword";
+    public const string AdminResetPassword = "AdminResetPassword";
+
+    // Session management actions
+    public const string SessionCreated = "SessionCreated";
+    public const string SessionTerminated = "SessionTerminated";
+    public const string AdminSessionTermination = "AdminSessionTermination";
+    public const string RoleSwitch = "RoleSwitch";
+
+    // Data export actions
+    public const string ExportData = "ExportData";
+
+    // Bad file report actions
+    public const string CreateReport = "CreateReport";
+    public const string UpdateReport = "UpdateReport";
+
+    // User lifecycle actions
+    public const string DeactivateUser = "DeactivateUser";
+
+    // Document actions
+    public const string UploadDocument = "UploadDocument";
 }
 
 /// <summary>
