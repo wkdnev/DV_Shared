@@ -102,8 +102,28 @@ public class AuditLog
     [MaxLength(2000)]
     public string? Metadata { get; set; }
 
+    /// <summary>
+    /// SHA-256 hash of the previous audit log record's RecordHash.
+    /// Forms a cryptographic chain per NIST SP 800-53 AU-9(3).
+    /// Genesis value: 64 zeros.
+    /// </summary>
+    [MaxLength(64)]
+    public string? PreviousHash { get; set; }
+
+    /// <summary>
+    /// SHA-256 hash of this record's canonical fields + PreviousHash.
+    /// Used for tamper detection per NIST SP 800-53 AU-9(3).
+    /// </summary>
+    [MaxLength(64)]
+    public string? RecordHash { get; set; }
+
     // Navigation properties
     public ApplicationUser? User { get; set; }
+
+    /// <summary>
+    /// Genesis hash used as PreviousHash for the first record in the chain
+    /// </summary>
+    public const string GenesisHash = "0000000000000000000000000000000000000000000000000000000000000000";
 }
 
 /// <summary>
