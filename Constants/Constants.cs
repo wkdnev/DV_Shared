@@ -87,7 +87,7 @@ public static class ClaimTypes
 
 /// <summary>
 /// Session management configuration constants
-/// NIST SP 800-53 Rev 5 compliant (AC-12, AC-10, SC-23)
+/// NIST SP 800-53 Rev 5 compliant (AC-10, AC-11, AC-12, SC-23)
 /// </summary>
 public static class SessionConfig
 {
@@ -108,4 +108,10 @@ public static class SessionConfig
 
     /// <summary>SC-23: Custom cookie name to prevent technology fingerprinting.</summary>
     public const string CookieName = "DV.SessionId";
+
+    /// <summary>AC-12(03): Minutes before idle timeout to show warning to user.</summary>
+    public const int TimeoutWarningMinutes = 5;
+
+    /// <summary>AC-11: Minutes of inactivity before the session lock screen activates.</summary>
+    public const int SessionLockMinutes = 25;
 }
