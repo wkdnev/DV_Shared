@@ -209,6 +209,10 @@ public static class AuditActions
     public const string SessionTerminated = "SessionTerminated";
     public const string AdminSessionTermination = "AdminSessionTermination";
     public const string RoleSwitch = "RoleSwitch";
+    public const string ConcurrentSessionEviction = "ConcurrentSessionEviction";
+    public const string AbsoluteTimeout = "AbsoluteTimeout";
+    public const string IdleTimeout = "IdleTimeout";
+    public const string AnomalyDetected = "AnomalyDetected";
 
     // Data export actions
     public const string ExportData = "ExportData";
