@@ -150,6 +150,36 @@ public class UserSessionSummary
     public DateTime LastActivity { get; set; }
 }
 
+public record InitializeSessionRequestDto
+{
+    public string Username { get; init; } = string.Empty;
+    public int? UserId { get; init; }
+    public string SessionKey { get; init; } = string.Empty;
+    public string? IpAddress { get; init; }
+    public string? UserAgent { get; init; }
+    public string? CurrentRole { get; init; }
+}
+
+public record SessionActivityRequestDto
+{
+    public string SessionKey { get; init; } = string.Empty;
+    public string? ActivityType { get; init; }
+    public string? Action { get; init; }
+    public string? Resource { get; init; }
+}
+
+public record UpdateSessionRoleRequestDto
+{
+    public string SessionKey { get; init; } = string.Empty;
+    public string NewRole { get; init; } = string.Empty;
+}
+
+public record UpdateSessionRoleByUsernameRequestDto
+{
+    public string Username { get; init; } = string.Empty;
+    public string NewRole { get; init; } = string.Empty;
+}
+
 // ============================================================================
 // Notification DTOs
 // NIST SP 800-53 Rev 5: SI-5, AU-12, AU-3

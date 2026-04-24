@@ -92,6 +92,7 @@ public interface ISessionManagementService
     Task<List<UserSession>> GetActiveSessionsAsync();
     Task<UserSession?> GetSessionByIdAsync(int sessionId);
     Task<List<UserSession>> GetUserSessionsAsync(int userId, bool activeOnly = true);
+    Task<List<UserSession>> GetUserSessionsByUsernameAsync(string username, bool activeOnly = true);
     Task<SessionStatistics> GetSessionStatisticsAsync();
     Task<int> CleanupExpiredSessionsAsync();
 }
